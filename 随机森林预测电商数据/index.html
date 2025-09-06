@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 电商数据科学项目 - 吹风机销售预测分析</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: #5a67d8;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .features h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 电商数据科学项目</h1>
+            <p>基于随机森林算法的吹风机销售预测与客户价值分析系统</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <h3>📊 投资人专业报告</h3>
+                <p>查看完整的投资分析报告，包含市场机会、技术架构、财务预测和风险评估。采用莫兰迪紫色系高端设计，支持PDF下载。</p>
+                <a href="./reports/investor_report/投资人专业报告.html" class="btn">查看报告</a>
+            </div>
+
+            <div class="card">
+                <h3>📈 交互式数据仪表板</h3>
+                <p>实时数据可视化仪表板，展示销售趋势、用户行为分析、产品表现等关键业务指标。</p>
+                <a href="./charts/交互式仪表板.html" class="btn">打开仪表板</a>
+            </div>
+
+            <div class="card">
+                <h3>🤖 机器学习模型</h3>
+                <p>基于随机森林算法的预测模型，包括购买概率预测、客户生命周期价值(LTV)预测和客户分群分析。</p>
+                <a href="#models" class="btn">了解模型</a>
+            </div>
+
+            <div class="card">
+                <h3>📋 项目文档</h3>
+                <p>完整的项目说明文档，包含安装指南、使用方法、API文档和常见问题解答。</p>
+                <a href="./README.md" class="btn">查看文档</a>
+            </div>
+
+            <div class="card">
+                <h3>🚀 GitHub仓库</h3>
+                <p>访问完整的源代码，支持克隆、Fork和贡献。包含详细的代码注释和模块化设计。</p>
+                <a href="https://github.com/YOUR_USERNAME/ecommerce-ml-prediction" class="btn">访问GitHub</a>
+            </div>
+
+            <div class="card">
+                <h3>📊 数据可视化图表</h3>
+                <p>查看所有生成的数据分析图表，包括销售趋势、用户行为、产品分析和客户分群等。</p>
+                <a href="./charts/" class="btn">查看图表</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>🎯 项目特色</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>🔬 完整数据科学流程</h4>
+                    <p>从数据生成到模型部署的完整流程</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🤖 先进机器学习算法</h4>
+                    <p>随机森林、XGBoost等多种算法</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📊 专业数据可视化</h4>
+                    <p>交互式图表和仪表板</p>
+                </div>
+                <div class="feature-item">
+                    <h4>💾 数据库集成</h4>
+                    <p>MySQL数据持久化存储</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 响应式设计</h4>
+                    <p>支持PC和移动端访问</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎨 高端UI设计</h4>
+                    <p>莫兰迪色系专业视觉效果</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🚀 让数据驱动你的业务决策，成为真正的数据科学家！</p>
+            <p>© 2024 电商数据科学项目 - 专业 · 完整 · 实用</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为卡片添加点击效果
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // 检查链接有效性
+            const links = document.querySelectorAll('a[href^="./"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // 这里可以添加链接检查逻辑
+                    console.log('访问:', this.href);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
